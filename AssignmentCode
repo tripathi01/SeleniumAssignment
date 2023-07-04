@@ -1,0 +1,34 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class SeleniumAssignment {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver", "\C\ChromeDriver");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.amazon.in");
+        WebElement searchBox = driver.findElement(By.id("twotabsearchtextbox"));
+        searchBox.sendKeys("Wrist watches");
+        WebElement searchButton = driver.findElement(By.id("nav-search-submit-button"));
+        searchButton.click();
+        WebElement displayFilter = driver.findElement(By.xpath("//span[contains(text(), 'Display')]//following-sibling::div"));
+        displayFilter.click();
+        WebElement analogueOption = driver.findElement(By.xpath("//a[contains(text(), 'Analogue')]"));
+        analogueOption.click();
+        WebElement brandFilter = driver.findElement(By.xpath("//span[contains(text(), 'Brand')]//following-sibling::div"));
+        brandFilter.click();
+        WebElement titanOption = driver.findElement(By.xpath("//a[contains(text(), 'Titan')]"));
+        titanOption.click();
+        WebElement materialFilter = driver.findElement(By.xpath("//span[contains(text(), 'Material')]//following-sibling::div"));
+        materialFilter.click();
+        WebElement leatherOption = driver.findElement(By.xpath("//a[contains(text(), 'Leather')]"));
+        leatherOption.click();
+        WebElement discountFilter = driver.findElement(By.xpath("//span[contains(text(), 'Discount')]//following-sibling::div"));
+        discountFilter.click();
+        WebElement twentyFivePercentOption = driver.findElement(By.xpath("//a[contains(text(), '25% Off or more')]"));
+        twentyFivePercentOption.click();
+        WebElement fifthElement = driver.findElement(By.xpath("//div[@data-index='4']"));
+        System.out.println("Fifth element: " + fifthElement.getText());
+        driver.quit();
+    }
+}
